@@ -21,14 +21,14 @@ Player.prototype.getCurrentWeapon = function(){
 let Cop = function(){
 	this.class = "cop";
 	this.health = 20;
-	this.weapons = ["shotgun", "nightstick"];
+	this.weapons = Cop.setWeapons(["shotgun", "nightstick"]);
 };
 Cop.prototype = new Player();
 
 let Criminal = function(){
 	this.class = "criminal";
 	this.health = 20;
-	this.weapons = ["uzi", "butterfly_knive"];
+	this.weapons = Criminal.setWeapons(["uzi", "butterfly_knive"]);
 };
 Criminal.prototype = new Player();
 
