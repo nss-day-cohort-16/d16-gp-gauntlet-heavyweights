@@ -10,7 +10,7 @@ let capturePlayerName = function(){
 };
 
 let setPlayerClass = function(){
-	console.log('setPlayerClass is running.');
+	// console.log('setPlayerClass is running.');
 	if(event.target.id==='cop'){
 		combatants.Cop(); 
 	}else if(event.target.id === 'criminal'){
@@ -19,7 +19,7 @@ let setPlayerClass = function(){
 };
 
 let genOpponent = function(){
-	console.log('generateOpponent is running.');
+	//console.log('generateOpponent is running.');
 	if(combatants.Cop === true){
 		let enemy = combatants.Criminal;
 	}else{
@@ -57,3 +57,5 @@ let checkHealth = function(newPlayerHealth, newEnemyHealth){
 	}
 };
 
+
+module.exports = {capturePlayerName, setPlayerClass, genOpponent,playerAttack, enemyAttack, checkHealth};

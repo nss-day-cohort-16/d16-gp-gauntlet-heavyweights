@@ -54,5 +54,5 @@ let butterfly_knive = function(){
 	this.damage = 2;
 };
 
- module.exports = { Cop, Criminal };
+ module.exports = { Cop, Criminal , weapons, shotgun, nightstick, uzi, butterfly_knive};
 
