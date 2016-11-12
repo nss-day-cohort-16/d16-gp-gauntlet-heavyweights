@@ -12,7 +12,7 @@ let capturePlayerName = function(){
 let setPlayerClass = function(){
 	console.log('setPlayerClass is running.');
 	if(event.target.id==='cop'){
-		combatants.Cop(); 
+		combatants.Cop();
 	}else if(event.target.id === 'criminal'){
 		combatants.Criminal();
 	}
