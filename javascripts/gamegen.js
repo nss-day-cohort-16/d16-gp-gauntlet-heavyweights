@@ -1,49 +1,29 @@
-'use strict';
 
+'use strict';
 let combatants = require('./combatants');
 
 let newPlayerHealth, newEnemyHealth;
+let player, enemy;
+let Gauntlet = {};
 
-
-function setPlayerClass(btnId){
-	console.log('setPlayerClass is running.');
+Gauntlet = { 
+setPlayerClass: function() {
 	if(event.target.id==='cop'){
-		new combatants.Cop();
+		 player = new combatants.Cop();
+		 enemy = new combatants.Criminal();
 	}else if(event.target.id === 'criminal'){
-		new combatants.Criminal();
+		 player = new combatants.Criminal();
+		 enemy = new combatants.Cop();
 	}
-}
-
-let genOpponent = function(){
-	console.log('generateOpponent is running.');
-	if(combatants.Cop === true){
-		let enemy = combatants.Criminal;
-	}else{
-		let enemy = combatants.Cop;
-	}
-
-	// random name generator
-};
-
-
-
-let playerAttack = function(player){
-	console.log('playerAttack is running.');
-	this.currentWeapon = combatants.Player.getCurrentWeapon();
+},
+playerAttack: function() {
+	let currentWeapon = combatants.Player.getCurrentWeapon();
 	newEnemyHealth = combatants.enemy.health - combatants.player.currentWeapon.damage;
-	console.log('newEnemyHealth', newEnemyHealth);
-	checkHealth(newEnemyHealth);
-};
-
-let enemyAttack = function(enemy){
-	console.log('enemyAttack is running.');
-	this.currentWeapon = combatants.Player.getCurrentWeapon();
+	
+	currentWeapon = combatants.Enemy.getCurrentWeapon();
 	newPlayerHealth = combatants.player.health - combatants.enemy.currentWeapon.damage;
-	console.log('newPlayerHealth', newPlayerHealth);
-	checkHealth(newPlayerHealth);
-};
-
-let checkHealth = function(newPlayerHealth, newEnemyHealth){
+},
+checkHealth: function(newPlayerHealth, newEnemyHealth){
 	if(newPlayerHealth === 0){
 		console.log(`${combatants.Player.name} is dead!`);
 	}else if(newEnemyHealth === 0){
@@ -51,6 +31,12 @@ let checkHealth = function(newPlayerHealth, newEnemyHealth){
 	}else{
 		console.log('Keep fighting!!!!');
 	}
-};
 
-module.exports = { setPlayerClass, genOpponent, playerAttack, enemyAttack, checkHealth };
+}
+
+};
+console.log("Gauntlet.playerAttack", Gauntlet.playerAttack() );
+console.log("Gauntlet",Gauntlet );
+
+
+module.exports = { Gauntlet };
