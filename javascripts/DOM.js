@@ -9,8 +9,9 @@ let weapons = require("./weapons");
  	let code = e.which;
  	if(code === 13) {
 		let playerName = document.getElementById("userInput").value;
- 		
- 		console.log("capturePlayerName", playerName); 		
+ 		console.log("capturePlayerName", playerName);
+ 		let userInputArea = document.getElementById("userInput");
+ 		userInputArea.value = "";
  	}
  });
 
@@ -34,12 +35,12 @@ $(".playerClass").click(function(player1){
 
  $("#attack").click(function(player1, enemy1){
  	console.log("player1 and enemy1", player1, enemy1 );
- 	
- 	
+
+
  	gamegen.Gauntlet.playerAttack(player1, enemy1);
  	gamegen.Gauntlet.enemyAttack(player1, enemy1);
 
- 	
+
  });
 
 $(document).ready(function() {
