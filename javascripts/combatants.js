@@ -1,28 +1,26 @@
 
 "use strict";
 
-let Game = function(){
-	// this.player.criminal = null;
-	// this.player.cop = null;
-};
+
 
 let Player = function(name){
 	this.name = name;
 	this.class = null;
-	this.health = null;
-	this.weapons = '';
-	this.damage = null;
-	this.currentWeapon = null;
+	this.health = ' ';
+	this.weapons = [];
+	this.damage = ' ';
+	this.currentWeapon = ' ';
 };
 
 Player.prototype.setWeapons = function(weapons){
 	console.log('setWeapons is running');
 	this.weapons = weapons ? this.weapons.concat(weapons, ' ') : this.weapons;
-
+	console.log("weapon", weapons );
 };
 
 Player.prototype.getCurrentWeapon = function(){
 	let currentWeapon = this.weapons[Math.floor(Math.random() * (this.weapons.length - 1))];
+	console.log("currentWeapon", currentWeapon);
 	return currentWeapon;
 };
 
