@@ -29,7 +29,7 @@ let Cop = function(){
 	this.class = "cop";
 	this.health = 20;
 	this.setWeapons(["shotgun", " nightstick"]);
-	this.getCurrentWeapon();
+	//this.getCurrentWeapon();
 	console.log('new Cop', this);
 };
 Cop.prototype = new Player();
@@ -38,7 +38,7 @@ let Criminal = function(){
 	this.class = "criminal";
 	this.health = 20;
 	this.setWeapons(["uzi", " butterfly_knife"]);
-	this.getCurrentWeapon();
+	//this.getCurrentWeapon();
 	console.log('new Criminal', this);
 
 };
