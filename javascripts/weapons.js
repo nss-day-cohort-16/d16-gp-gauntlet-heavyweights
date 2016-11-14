@@ -2,7 +2,7 @@
 
 let Weapon = function(){
 	this.name = 'default weapon';
-	this.damage = null;
+	this.damage = " ";
 };
 
 let Shotgun = function(){

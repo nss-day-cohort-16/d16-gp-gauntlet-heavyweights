@@ -13,22 +13,32 @@ let weapons = require("./weapons");
  		console.log("capturePlayerName", playerName); 		
  	}
  });
+
 let cop = document.getElementById('cop');
 let criminal = document.getElementById('criminal');
-$(".playerClass").click(function(){
+
+$(".playerClass").click(function(player1){
+
+	gamegen.Gauntlet.setPlayerClass(event);
+	gamegen.Gauntlet.setEnemyClass(event);
+
 	if(event.target.id === "cop"){
-		gamegen.Gauntlet.setPlayerClass(cop);
+	 player1 = gamegen.Gauntlet.setPlayerClass(cop);
 	}else if(event.target.id === "criminal"){
-		gamegen.Gauntlet.setPlayerClass(criminal);
+	 player1 = gamegen.Gauntlet.setPlayerClass(criminal);
 	}
+	console.log("player1", player1);
 });
 
  // Gauntlet.playerAttack();
 
- $("#attack").click(function(e){
- 	console.log("clicked Attack");
+ $("#attack").click(function(player1, enemy1){
+ 	console.log("player1 and enemy1", player1, enemy1 );
  	
- 
+ 	
+ 	gamegen.Gauntlet.playerAttack(player1, enemy1);
+ 	gamegen.Gauntlet.enemyAttack(player1, enemy1);
+
  	
  });
 
@@ -38,9 +48,9 @@ $(document).ready(function() {
  let copInfo = $("#copInfo");
  let criminalInfo = $("#criminalInfo");
 
+ 	// gamegen.Gauntlet.setPlayerClass();
 
  $("#attack").on("click", function(e) {
- 	gamegen.Gauntlet.setPlayerClass();
  	gamegen.Gauntlet.playerAttack();
  	copInfo.html(
  		`<p>health: ${combatants.Cop.health}</p>
@@ -63,3 +73,6 @@ $(document).ready(function() {
  });
 
 });
+
+let listDom = document.getElementById("copInfo");
+listDom.innerHTML = `<p>health: $${gamegen.Gauntlet.setPlayerClass}${gamegen.Gauntlet.playerAttack}</p>`;
